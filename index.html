@@ -7,7 +7,81 @@
   <link rel="icon" href="./pics/title pic.jpeg">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<script>
+  window.addEventListener("load", () => {
+    const popup = document.getElementById("new-portfolio-popup");
+    const stayBtn = document.getElementById("stay-here");
+
+    // Show popup and NEVER auto-hide
+    popup.classList.remove("opacity-0", "pointer-events-none");
+
+    stayBtn.addEventListener("click", () => {
+      popup.classList.add("opacity-0", "pointer-events-none");
+    });
+  });
+</script>
+
 <body class="bg-gray-50 text-gray-800">
+  <!-- Modern Animated Popup -->
+<div id="new-portfolio-popup" 
+     class="fixed inset-0 flex items-center justify-center backdrop-blur-md bg-black/60 z-[9999] opacity-0 pointer-events-none transition-all duration-700">
+
+  <div class="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 w-[90%] max-w-md shadow-2xl
+              animate-popupGlow scale-75 opacity-0 transition-all duration-700 text-center">
+
+    <!-- Neon Border Glow -->
+    <div class="absolute inset-0 rounded-3xl pointer-events-none border border-indigo-400/30 shadow-[0_0_30px_10px_rgba(99,102,241,0.3)]"></div>
+
+    <h2 class="text-2xl font-extrabold text-white mb-4 tracking-wide animate-typing overflow-hidden whitespace-nowrap border-r-2 border-white/50 w-0">
+      New Portfolio Available!
+    </h2>
+
+    <p class="text-gray-200 mb-6 text-lg opacity-90">
+      Want to explore the upgraded version or stay with this classic?
+    </p>
+
+    <div class="flex justify-center gap-4">
+      <a href="https://milton1208.github.io/portfolio/"
+         target="_blank"
+         class="px-5 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl shadow-lg transition-all active:scale-95">
+         Visit New
+      </a>
+
+      <button id="stay-here"
+              class="px-5 py-2 bg-white/30 hover:bg-white/40 text-white rounded-xl shadow-lg transition-all active:scale-95">
+         Stay Here
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @keyframes popupGlow {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .animate-popupGlow {
+    animation: popupGlow 0.7s ease-out forwards;
+  }
+
+  /* FIXED Typewriter animation */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  @keyframes blink {
+    50% { border-color: transparent }
+  }
+
+  .animate-typing {
+    animation:
+      typing 2s steps(30) forwards,     /* <— stays at 100% width */
+      blink .7s infinite step-end alternate;
+  }
+</style>
+
 
  <!-- Hero Section with Single Background -->
 <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center text-center text-white p-8 bg-cover bg-center" style="background-image: url('./pics/milk.jpg'); background-position: center 30%;">
@@ -101,7 +175,7 @@
 
 <!-- Certificates Section -->
 <section id="certificates" class="bg-white p-8 max-w-4xl mx-auto">
-  <h2 class="text-3xl font-semibold mb-4">Proffessional Developments</h2>
+  <h2 class="text-3xl font-semibold mb-4">Professional Developments</h2>
   
      <div class="space-y-8">
     <div class="bg-gray-100 p-4 rounded shadow">
